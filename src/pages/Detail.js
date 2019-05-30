@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropsTypes from 'prop-types';
 import { Header } from '../components/Header';
-import { Rating } from '../components/rating';
+import { Rating } from '../components/Rating';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -80,13 +80,13 @@ export class Detail extends Component {
                                 <h1 className="title is-1">{title}</h1>
                                 <h2 className="subtitle">{tagline}</h2>
                                 <div className="columns">
-                                    <div className="column is-6">
+                                    <div className="column is-8">
                                         <div className="tags has-addons">
                                             <span className="tag is-primary">{ release_date ? parseInt(release_date) : '' }</span>
                                             { this._renderGenres() }
                                         </div>
                                     </div>
-                                    <div className="column is-6">
+                                    <div className="column is-4">
                                         <Rating avg={ (vote_average / 2) } />
                                     </div>
                                 </div>

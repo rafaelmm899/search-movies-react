@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
-import { Rating } from './rating';
+import { Rating } from './Rating';
 
 export class Movie extends Component {
     
