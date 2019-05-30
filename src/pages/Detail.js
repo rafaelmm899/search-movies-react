@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropsTypes from 'prop-types';
 import { Header } from '../components/Header';
+import { Rating } from '../components/rating';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -86,14 +87,7 @@ export class Detail extends Component {
                                         </div>
                                     </div>
                                     <div className="column is-6">
-                                        <div className="field is-grouped is-grouped-multiline" style={{float:'right'}}>
-                                            <div className="control">
-                                                <div className="tags has-addons">
-                                                    <span className="tag ">rating</span>
-                                                    <span className="tag is-info">{vote_average}</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <Rating avg={ (vote_average / 2) } />
                                     </div>
                                 </div>
                                 <section>

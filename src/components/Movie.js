@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
+import { Rating } from './rating';
 
 export class Movie extends Component {
     
@@ -8,12 +9,13 @@ export class Movie extends Component {
         title : PropTypes.string,
         poster : PropTypes.string,
         year : PropTypes.string,
-        id: PropTypes.number
+        id: PropTypes.number,
+        avg: PropTypes.number
     }
 
     render(){
 
-        const { title, poster, year, id } = this.props
+        const { title, poster, year, id,avg } = this.props
         return (
             <Link to={'/detail/'+id} className="card">
                 <div className="card-image">
@@ -29,6 +31,7 @@ export class Movie extends Component {
                         <div className="media-content">
                             <p className="title is-4">{title}</p>
                             <p className="subtitle is-6">{ parseInt(year) }</p>
+                            <Rating avg={avg} />
                         </div>
                     </div>
                 </div>

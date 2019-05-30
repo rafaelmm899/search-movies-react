@@ -27,6 +27,7 @@ export class MoviesList extends Component {
                                 year={movie.release_date}
                                 poster={'https://image.tmdb.org/t/p/original'+movie.poster_path}
                                 id={movie.id}
+                                avg={( movie.vote_average / 2) }
                             />
                         </div>
                     })

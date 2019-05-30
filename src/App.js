@@ -7,7 +7,8 @@ import { Detail } from './pages/Detail';
 import { NotFound } from './pages/NotFound';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as fasStar,faCheckSquare,faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 
 class App extends Component {
   
@@ -26,5 +27,5 @@ class App extends Component {
 
   
 }
-library.add(faStar)
+library.add(fasStar,farStar,faCheckSquare,faStarHalfAlt)
 export default App;
