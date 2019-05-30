@@ -17,25 +17,27 @@ export class Movie extends Component {
 
         const { title, poster, year, id,avg } = this.props
         return (
-            <Link to={'/detail/'+id} className="card">
-                <div className="card-image">
-                    <figure className="image is-square">
-                        <img
-                            alt={title}
-                            src={poster}
-                        />
-                    </figure>
-                </div>
-                <div className="card-content">
-                    <div className="media">
-                        <div className="media-content">
-                            <p className="title is-4">{title}</p>
-                            <p className="subtitle is-6">{ parseInt(year) }</p>
-                            <Rating avg={avg} />
+            <div className="card-wrapper">
+                <Link to={'/detail/'+id} className="card">
+                    <div className="card-image">
+                        <figure className="image is-square">
+                            <img
+                                alt={title}
+                                src={poster}
+                            />
+                        </figure>
+                    </div>
+                    <div className="card-content">
+                        <div className="media">
+                            <div className="media-content">
+                                <p className="title is-4">{title}</p>
+                                <p className="subtitle is-6">{ parseInt(year) }</p>
+                                <Rating avg={avg} />
+                            </div>
                         </div>
                     </div>
-                </div>
-            </Link>
+                </Link>
+            </div>
         );
     }
 }

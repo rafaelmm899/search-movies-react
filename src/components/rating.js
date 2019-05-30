@@ -9,7 +9,7 @@ export class Rating extends Component {
         }else{
             let res = (avg % 1);
             let integer = Math.trunc(avg);
-            if(res > 0.5 && (integer == (rating - 1))){
+            if(res > 0.5 && (integer === (rating - 1))){
                 return <FontAwesomeIcon icon="star-half-alt" />
             }
             return <FontAwesomeIcon icon={['far','star']} />

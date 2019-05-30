@@ -24,12 +24,14 @@
 
 .MoviesList-item:hover{
   background-color: #373330 !important;
-  color: #fdfdfd !important;
 }
 
-.MoviesList-item:hover .title,.MoviesList-item:hover .subtitle{
-  color: #fdfdfd !important;
+.card-wrapper{
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
 }
+
 
 .card-content {
   padding: 0.5rem;

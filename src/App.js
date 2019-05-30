@@ -6,7 +6,7 @@ import { Home } from './pages/Home';
 import { Detail } from './pages/Detail';
 import { NotFound } from './pages/NotFound';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { faStar as fasStar,faCheckSquare,faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 
