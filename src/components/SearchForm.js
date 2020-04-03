@@ -1,37 +1,37 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-const API_KEY = process.env.REACT_APP_API_KEY;
+import React, { Component } from 'react'
+import { withRouter } from 'react-router'
+const API_KEY = process.env.REACT_APP_API_KEY
 
 class SearchForm extends Component {
   state = {
-    inputSearch: "",
-  };
+    inputSearch: '',
+  }
 
   _handleOnChange = (e) => {
     this.setState({
       inputSearch: e.target.value,
-    });
-  };
+    })
+  }
 
   _handleOnSubmit = (e) => {
-    e.preventDefault();
-    const { inputSearch } = this.state;
+    e.preventDefault()
+    const { inputSearch } = this.state
 
     if (inputSearch) {
       fetch(
-        "https://api.themoviedb.org/3/search/movie?api_key=" +
+        'https://api.themoviedb.org/3/search/movie?api_key=' +
           API_KEY +
-          "&query=" +
+          '&query=' +
           this.state.inputSearch
       )
         .then((res) => res.json())
         .then((data) => {
-          const { results } = data;
+          const { results } = data
 
-          this.props.onResults(results);
-        });
+          this.props.onResults(results)
+        })
     }
-  };
+  }
 
   render() {
     return (
@@ -50,8 +50,8 @@ class SearchForm extends Component {
           </div>
         </div>
       </form>
-    );
+    )
   }
 }
 
-export default withRouter(SearchForm);
+export default withRouter(SearchForm)

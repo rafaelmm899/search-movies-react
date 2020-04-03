@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropsTypes from "prop-types";
-import { Header } from "../components/Header";
-import { Rating } from "../components/Rating";
+import React, { Component } from 'react'
+import PropsTypes from 'prop-types'
+import { Header } from '../components/Header'
+import { Rating } from '../components/Rating'
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY
 
 export class Detail extends Component {
   static PropsTypes = {
@@ -13,26 +13,26 @@ export class Detail extends Component {
       path: PropsTypes.string,
       url: PropsTypes.string,
     }),
-  };
+  }
 
   state = {
     movie: {},
-  };
+  }
 
   _fetchMovies({ id }) {
-    console.log(process.env);
+    console.log(process.env)
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
       .then((res) => res.json())
       .then((movie) => {
-        console.log(movie);
+        console.log(movie)
         this.setState({
           movie,
-        });
-      });
+        })
+      })
   }
 
   _renderGenres = () => {
-    const { genres } = this.state.movie;
+    const { genres } = this.state.movie
 
     if (genres) {
       return genres.map((genre) => {
@@ -40,14 +40,14 @@ export class Detail extends Component {
           <span key={genre.id} className="tag">
             {genre.name}
           </span>
-        );
-      });
+        )
+      })
     }
-  };
+  }
 
   componentDidMount() {
-    const { id } = this.props.match.params;
-    this._fetchMovies({ id });
+    const { id } = this.props.match.params
+    this._fetchMovies({ id })
   }
 
   render() {
@@ -58,15 +58,15 @@ export class Detail extends Component {
       tagline,
       overview,
       vote_average,
-    } = this.state.movie;
+    } = this.state.movie
 
     return (
       <div>
         <Header
           rightItems={[
             {
-              href: "/",
-              title: "Go back",
+              href: '/',
+              title: 'Go back',
             },
           ]}
         />
@@ -88,7 +88,7 @@ export class Detail extends Component {
                   <div className="column is-8">
                     <div className="tags has-addons">
                       <span className="tag is-primary">
-                        {release_date ? parseInt(release_date) : ""}
+                        {release_date ? parseInt(release_date) : ''}
                       </span>
                       {this._renderGenres()}
                     </div>
@@ -103,6 +103,6 @@ export class Detail extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

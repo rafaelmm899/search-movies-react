@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-export const Title = ({ children }) => {
-    return <strong className="title">{ children }</strong>;
-}
+export const Title = ({ children }) => (
+  <strong className="title">{children}</strong>
+)
