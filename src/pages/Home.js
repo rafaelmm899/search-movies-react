@@ -1,59 +1,56 @@
-import React, { Component } from 'react'
-import { MoviesList } from '../components/MoviesList';
-import { Header } from '../components/Header';
-import  SearchForm  from '../components/SearchForm';
+import React, { Component } from "react";
+import { MoviesList } from "../components/MoviesList";
+import { Header } from "../components/Header";
+import SearchForm from "../components/SearchForm";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 export class Home extends Component {
+  state = {
+    results: [],
+    userSearch: false,
+  };
 
-    state = {
-        results : [], 
-        userSearch : false
-    }
+  _handleResults = (data) => {
+    this.setState({
+      userSearch: true,
+      results: data,
+    });
+  };
 
-    _handleResults = (data) => {
-        
+  _searchData = (searchPath) => {
+    fetch(searchPath)
+      .then((res) => res.json())
+      .then((data) => {
+        const { results } = data;
+        console.log(data);
         this.setState({
-            userSearch : true, results : data
-        })
-        
-    }
+          results,
+        });
+      });
+  };
 
-    _searchData =(searchPath) => {
-        
-        fetch(searchPath)
-            .then(res => res.json())
-                .then(data => {
-                    const { results } = data;
-                    console.log(data);
-                    this.setState({
-                        results
-                    })            
-                    
-                });
-    }
+  componentDidMount() {
+    this._searchData(
+      "https://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY
+    );
+  }
 
-    componentDidMount(){
-        this._searchData('https://api.themoviedb.org/3/movie/popular?api_key='+API_KEY);
-    }
+  renderResult = (e) => {
+    return this.state.results.length === 0 ? (
+      <p>There are no results</p>
+    ) : (
+      <MoviesList movies={this.state.results} />
+    );
+  };
 
-    renderResult = (e) => {
-        
-        return  this.state.results.length === 0 ? 
-                <p>Sin resultados</p> :
-                <MoviesList movies={this.state.results} />
-    }
-
-    render(){
-        return (
-            <div>
-                <Header>
-                    <SearchForm onResults={ this._handleResults } />
-                </Header>
-                <div>
-                    {  this.renderResult() }
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Header>
+          <SearchForm onResults={this._handleResults} />
+        </Header>
+        <div>{this.renderResult()}</div>
+      </div>
+    );
+  }
 }
