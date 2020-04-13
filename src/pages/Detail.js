@@ -66,7 +66,7 @@ export class Detail extends Component {
           rightItems={[
             {
               href: "/",
-              title: "volver",
+              title: "Go back",
             },
           ]}
         />
