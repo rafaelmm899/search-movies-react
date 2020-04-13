@@ -65,13 +65,13 @@ export class Detail extends Component {
         <Header
           rightItems={[
             {
-              href: "/",
+              href: "/back",
               title: "volver",
             },
           ]}
         />
         <div className="container">
-          <div className="notification black-notification">
+          <div className="notification">
             <div className="columns">
               <div className="column is-4">
                 <figure className="image is-square">
