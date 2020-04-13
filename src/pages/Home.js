@@ -37,7 +37,11 @@ export class Home extends Component {
 
   renderResult = (e) => {
     return this.state.results.length === 0 ? (
+<<<<<<< HEAD
       <p>no results</p>
+=======
+      <p>There are no results</p>
+>>>>>>> fix translation
     ) : (
       <MoviesList movies={this.state.results} />
     );
