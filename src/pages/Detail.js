@@ -65,8 +65,8 @@ export class Detail extends Component {
         <Header
           rightItems={[
             {
-              href: "/back",
-              title: "volver",
+              href: "/",
+              title: "Go back",
             },
           ]}
         />
