@@ -12,19 +12,9 @@ export class MoviesList extends Component {
 
     return (
       <div className="MoviesList columns is-mobile">
-        {movies.map(movie => {
+        {movies.map((movie) => {
           return (
-            <div
-              key={movie.id}
-              className="
-                MoviesList-item 
-                column 
-                is-one-fifth-desktop 
-                is-full-mobile 
-                is-one-quarter-tablet
-                is-one-fifth-widescreen
-                is-one-fifth-fullhd"
-            >
+            <div key={movie.id} className="is-one-quarter column">
               <Movie
                 title={movie.original_title}
                 year={movie.release_date}

@@ -45,12 +45,12 @@ export class Home extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Header>
           <SearchForm onResults={this._handleResults} />
         </Header>
-        <div>{this.renderResult()}</div>
-      </div>
+        <div className="container">{this.renderResult()}</div>
+      </React.Fragment>
     )
   }
 }

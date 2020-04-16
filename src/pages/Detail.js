@@ -61,7 +61,7 @@ export class Detail extends Component {
     } = this.state.movie
 
     return (
-      <div>
+      <React.Fragment>
         <Header
           rightItems={[
             {
@@ -102,7 +102,7 @@ export class Detail extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     )
   }
 }
