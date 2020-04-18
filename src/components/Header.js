@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Title } from './Title'
 
 export class Header extends Component {
-  _renderRightItems = () => {
+  /*_renderRightItems = () => {
     const { rightItems } = this.props
     if (rightItems) {
       return rightItems.map((item, index) => {
@@ -16,9 +16,10 @@ export class Header extends Component {
     }
 
     return null
-  }
+  }*/
 
   render() {
+    const { leftContent, rightContent } = this.props
     return (
       <nav className="level">
         <div className="level-left">
@@ -29,14 +30,12 @@ export class Header extends Component {
           </div>
           <div className="level-item">
             <div className="field has-addons">
-              <div className="control">
-                {this.props.children ? this.props.children : ''}
-              </div>
+              <div className="control">{leftContent ? leftContent : ''}</div>
             </div>
           </div>
         </div>
 
-        <div className="level-right">{this._renderRightItems()}</div>
+        <div className="level-right">{rightContent}</div>
       </nav>
     )
   }
