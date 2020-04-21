@@ -45,3 +45,48 @@ nav.level {
 .container {
   margin-top: 66px !important;
 }
+
+.hidden {
+  display: none;
+}
+
+.pagination-list-custom {
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.pagination-list-custom .disabled {
+  display: none;
+}
+
+.pagination-list-custom li a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.pagination-list-custom li a:hover {
+  background-color: #363636;
+  color: black;
+  border-radius: 50%;
+}
+
+.previous {
+  background-color: #363636;
+  color: #ddd;
+  float: left;
+}
+
+.next {
+  background-color: #363636;
+  color: #ddd;
+  float: right;
+  position: relative;
+}
+
+.round {
+  border-radius: 50%;
+}

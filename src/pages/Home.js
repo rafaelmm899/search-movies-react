@@ -63,30 +63,27 @@ export class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header
-          leftContent={<SearchForm onResults={this._handleResults} />}
-          rightContent={
-            <nav className={'pagination'}>
-              <ReactPaginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
-                breakLabel={'...'}
-                breakClassName={'break-me'}
-                pageCount={this.state.totalPages}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={2}
-                onPageChange={this.handlePageClick}
-                containerClassName={'pagination-list'}
-                activeClassName={'active'}
-                previousClassName={'pagination-previous'}
-                nextClassName={'pagination-next'}
-                pageClassName={'level-item'}
-                initialPage={this.state.page}
-              />
-            </nav>
-          }
-        />
+        <Header rightContent={<SearchForm onResults={this._handleResults} />} />
         <div className="container">{this.renderResult()}</div>
+        <nav className={'pagination'}>
+          <ReactPaginate
+            previousLabel={'<'}
+            nextLabel={'>'}
+            breakClassName={'hidden'}
+            breakLinkClassName={'hidden'}
+            pageCount={this.state.totalPages}
+            marginPagesDisplayed={0}
+            pageRangeDisplayed={0}
+            itemsCountPerPage={20}
+            onPageChange={this.handlePageClick}
+            containerClassName={'pagination-list-custom'}
+            activeClassName={'active'}
+            previousClassName={'previous round'}
+            nextClassName={'next round'}
+            pageClassName={'hidden'}
+            initialPage={this.state.page}
+          />
+        </nav>
       </React.Fragment>
     )
   }
