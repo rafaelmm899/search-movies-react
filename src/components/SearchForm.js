@@ -26,9 +26,17 @@ class SearchForm extends Component {
         .then((data) => {
           const { results } = data
 
-          this.props.onResults(results)
+          this.props.onResults(results, true)
         })
+    } else {
+      this.props.onResults([], false)
     }
+  }
+
+  clearInput = (e) => {
+    this.setState({
+      inputSearch: '',
+    })
   }
 
   render() {
