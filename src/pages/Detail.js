@@ -20,7 +20,6 @@ export class Detail extends Component {
   }
 
   _fetchMovies({ id }) {
-    console.log(process.env)
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
       .then((res) => res.json())
       .then((movie) => {
@@ -51,6 +50,11 @@ export class Detail extends Component {
   }
 
   render() {
+    const backButton = (
+      <p className="level-item">
+        <a href="/">back home</a>
+      </p>
+    )
     const {
       title,
       poster_path,
@@ -62,14 +66,7 @@ export class Detail extends Component {
 
     return (
       <React.Fragment>
-        <Header
-          rightItems={[
-            {
-              href: '/',
-              title: 'Go back',
-            },
-          ]}
-        />
+        <Header rightContent={backButton} />
         <div className="container">
           <div className="notification">
             <div className="columns">

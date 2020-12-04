@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 import { Title } from './Title'
 
 export class Header extends Component {
-  /*_renderRightItems = () => {
+  _renderRightItems = () => {
     const { rightItems } = this.props
     if (rightItems) {
+      console.log(rightItems)
       return rightItems.map((item, index) => {
         return (
           <p className="level-item" key={index}>
@@ -16,7 +17,7 @@ export class Header extends Component {
     }
 
     return null
-  }*/
+  }
 
   render() {
     const { leftContent, rightContent } = this.props

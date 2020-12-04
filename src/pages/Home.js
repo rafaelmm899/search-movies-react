@@ -8,17 +8,28 @@ const API_KEY = process.env.REACT_APP_API_KEY
 export class Home extends Component {
   state = {
     results: [],
-    searchParameter: '',
     page: 0,
     totalResults: 1,
     totalPages: 1,
   }
 
-  _handleResults = (query) => {
-    this.setState({
-      searchParameter: query,
-    })
-    console.log(this.state)
+  componentDidMount() {
+    this._searchData(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+    )
+  }
+
+  _handleResults = (results, isSearching) => {
+    if (!isSearching) {
+      this._searchData(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+      )
+    } else {
+      this.setState({
+        results,
+        page: 0,
+      })
+    }
   }
 
   _searchData = (searchPath) => {
@@ -29,7 +40,6 @@ export class Home extends Component {
 
         this.setState({
           results,
-          searchParameter: '',
           page,
           totalResults: total_results,
           totalPages: total_pages,
@@ -45,13 +55,6 @@ export class Home extends Component {
     )
   }
 
-  componentDidMount() {
-    console.log(this.state)
-    /*this._searchData(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${this.state.page}`
-    )*/
-  }
-
   renderResult = (e) => {
     return this.state.results.length === 0 ? (
       <p>There are no results</p>
@@ -64,9 +67,11 @@ export class Home extends Component {
     return (
       <React.Fragment>
         <Header rightContent={<SearchForm onResults={this._handleResults} />} />
+
         <div className="container">{this.renderResult()}</div>
         <nav className={'pagination'}>
           <ReactPaginate
+            disableInitialCallback={true}
             previousLabel={'<'}
             nextLabel={'>'}
             breakClassName={'hidden'}
