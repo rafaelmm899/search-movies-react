@@ -1,50 +1,92 @@
 .App {
-  /*padding-top: 36px;*/
   text-align: center;
 }
 
-.search-form-wrapper{
+.search-form-wrapper {
   display: flex;
   justify-content: center;
 }
 
-.MoviesList{
-  display: flex;
+.MoviesList {
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 16px;
-  background-color: #fdfdfd;
-  
+  background-color: rgb(21, 32, 43);
 }
 
-.MoviesList-item{
-  margin-bottom: 24px;
-  width: 48%;
-}
-
-.MoviesList-item:hover{
+.MoviesList-item:hover {
   background-color: #373330 !important;
 }
 
-.card-wrapper{
+.card-wrapper {
   padding: 10px;
   border: 1px solid #ddd;
   background-color: #fff;
 }
 
-
 .card-content {
   padding: 0.5rem;
 }
 
-nav.level{
-  min-height: 80px;
-  padding: 20px;
-  box-shadow: 0px 3px 7px 0px rgba(211,211,211,1);
-  margin-bottom: 24px !important;
+nav.level {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: rgb(21, 32, 43);
+  z-index: 1;
+  padding: 10px;
+  border-bottom: 1px solid #363636;
 }
 
-.black-notification{
+.black-notification {
   background-color: #373330 !important;
   color: #fdfdfd;
+}
+
+.container {
+  margin-top: 66px !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.pagination-list-custom {
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.pagination-list-custom .disabled {
+  display: none;
+}
+
+.pagination-list-custom li a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.pagination-list-custom li a:hover {
+  background-color: #363636;
+  color: black;
+  border-radius: 50%;
+}
+
+.previous {
+  background-color: #363636;
+  color: #ddd;
+  float: left;
+}
+
+.next {
+  background-color: #363636;
+  color: #ddd;
+  float: right;
+  position: relative;
+}
+
+.round {
+  border-radius: 50%;
 }
